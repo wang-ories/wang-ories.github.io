@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" class="perfect-scrollbar-off">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/apple-icon.png">
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>
+    </title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
+    <!-- Fonts and icons -->
+    <link href="./assets/fonts/all.css" rel="stylesheet"> <!--load all styles -->
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" type="text/css" href="./css/css">
+    <link rel="stylesheet"  href="./css/style.css">
+
+    <!--script type="text/javascript" charset="UTF-8" src="./js/common.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="./js/util.js"></script-->
+</head>
+
+<body class="white-theme" >
+  <div class="wrapper">
+    <div class="main-panel-width">
+        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="navbar-toggler-icon icon-bar"></span>
+                    <span class="navbar-toggler-icon icon-bar"></span>
+                    <span class="navbar-toggler-icon icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="./login.html" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4  col-md-4 col-sm-12 side-profile">
+                        <div class="col-md-12" id="container-profile">
+                            <div class="card card-blog card-profile">
+                                <div class="card-body">
+                                    <h4 class="card-title">Job title</h4><br>
+                                    <p class="card-subtitle" style="text-align:left">Lorem ipsum lorem upsum Lorem ipsum lorem upsumLorem ipsum lorem upsum</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <i class="material-icons">access_time</i> campaign sent 2 days ago
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6  col-md-6 col-sm-12 offset-lg-1 offset-md-1">
+                        <br>
+                        <span class="main-page-header">
+                            <h2 class="mbn-header">Start your search journey</h2>
+                            <h3>Find a job amount thousands of available jobs</h3>
+                        </span>
+                        <form class="search-form">
+                            <span class="bmd-form-group">
+                                <div class="input-group no-border round-search">
+                                    <input type="text" value="" class="form-control form-control-no-border" placeholder="Search for opportunities and people..." >
+                                    <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                      <img src="./assets/img/search.png" width="20" height="20">
+                                      <div class="ripple-container"></div>
+                                    </button>
+                                </div>
+                            </span>
+                        </form>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav class="float-left">
+                    <ul>
+                        <li>
+                            <a href="#">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Blog
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="copyright float-right">
+                    ©
+                    <script>
+                    document.write(new Date().getFullYear())
+                    </script>
+                    <a href="https://github.com/wang-ories/torre.co" target="_blank">
+                        Wang Lee on Github</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<script src="./js/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+        var api_url = 'http://127.0.0.1:5000/api/v1/info'
+        $.ajax({
+            url: api_url,
+            crossDomain: true,
+            dataType: 'json',
+            type: "GET",
+            success: function(data){
+                var card = '';
+                $.each(data, function(key, value){
+                    var person = data['person']
+                    console.log(person['picture'])
+                    card += '<div class="card card-blog card-profile">';
+                    card += '<div class="card-body"><h4 class="card-title">'+key+'</h4><br><p class="card-subtitle" style="text-align:left">';
+                    card +=  '</p></div>';
+                    card += '</div>';
+                });
+                $('#container-profile').html(card);
+            }
+        })
+    });
+</script>
+
+</body></html>
