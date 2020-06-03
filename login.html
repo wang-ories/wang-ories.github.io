@@ -69,7 +69,7 @@
         event.preventDefault();
         var $form = $(this);
         username = $form.find('input[name="login"]').val();
-        var api_url = 'http://127.0.0.1:5000/api/v1/users/'
+        var api_url = 'https://bio.torre.co/api/bios/'
         if(username.length < 1){
            $(".alert-error").show();
         }
